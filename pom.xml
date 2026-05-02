@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -9,12 +9,12 @@
     <artifactId>petclinic</artifactId>
     <version>1.0.0</version>
 
-    <!-- ✅ CHANGE TO JAR -->
+    <!-- ✅ RUN AS JAR -->
     <packaging>jar</packaging>
 
     <name>Petclinic Spring Boot</name>
 
-    <!-- ✅ SPRING BOOT PARENT -->
+    <!-- ✅ SPRING BOOT -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -28,32 +28,50 @@
 
     <dependencies>
 
-        <!-- ✅ WEB -->
+        <!-- 🌐 WEB -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- ✅ JPA -->
+        <!-- 🗄️ JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- ✅ THYMELEAF (UI) -->
+        <!-- ✅ VALIDATION (FIXES YOUR ERROR) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!-- ✅ H2 DATABASE -->
+        <!-- 🧠 JSP SUPPORT (your project uses JSP) -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <!-- 🗃️ DATABASE (H2 for easy run) -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- ✅ TEST -->
+        <!-- 🔧 OPTIONAL MYSQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 🧪 TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -63,9 +81,11 @@
     </dependencies>
 
     <build>
+        <finalName>petclinic</finalName>
+
         <plugins>
 
-            <!-- ✅ SPRING BOOT PLUGIN (IMPORTANT) -->
+            <!-- ✅ IMPORTANT (creates runnable JAR) -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
